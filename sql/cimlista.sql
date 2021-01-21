@@ -1,0 +1,2 @@
+SELECT  email.email as Címlista FROM cimlistak INNER JOIN (email INNER JOIN mailescim ON email.ID = mailescim.emailid) ON cimlistak.ID = mailescim.cimlistaid 
+WHERE  cimlistak.nev = 'SMT Muszakjelentes' order by email.email asc;
