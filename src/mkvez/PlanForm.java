@@ -2354,7 +2354,7 @@ public class PlanForm extends javax.swing.JPanel {
                             /*job keresés*/
                             //System.out.println("SFDC JOB találat... [" + sfdcadat[R][3] + "]");
 
-                            if (isExistInPlan(sfdcadat[R][3].toString()) && sfdcadat[R][2].toString().equals("1") && getName().equalsIgnoreCase(sfdcadat[R][0].toString().substring(sfdcadat[R][0].toString().length()-1))) {
+                            if (isExistInPlan(sfdcadat[R][3].toString()) && sfdcadat[R][2].toString().equals("1") && getName().equalsIgnoreCase(sfdcadat[R][0].toString().substring(sfdcadat[R][0].toString().length() - 1))) {
                                 /*ha van job és first pass és a sor is egyezik */
                                 canwrite = true;
                                 System.out.println("A JOB a tervben megtalálható...");
@@ -2476,14 +2476,30 @@ public class PlanForm extends javax.swing.JPanel {
 
                 BTN_QUERYActionPerformed(null);
                 //JOptionPane.showMessageDialog(this, query);
-                MkVez.ww.setVisible(false);
+                //MkVez.ww.setVisible(false);
+                SwingUtilities.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        jButton15.setIcon(new ImageIcon(mkvez.MkVez.class.getResource("IMG/sanm16.png")));
+
+                    }
+                });
 
             }
         };
 
         Thread t = new Thread(r);
         t.start();
-        MkVez.ww.setVisible(true);
+        //MkVez.ww.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                jButton15.setIcon(new ImageIcon(mkvez.MkVez.class.getResource("IMG/loader.gif")));
+
+            }
+        });
     }//GEN-LAST:event_jButton15ActionPerformed
 
 
